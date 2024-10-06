@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(11, 50, 122);
+}
+
+.card {
+  height: 350px;
+  width: 250px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 2px 9px 13px rgba(0, 0, 0, 0.493);
+  position: relative;
+  transition: all 0.5s;
+}
+
+.card .wal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  z-index: -1;
+  left: 0%;
+  border-radius: 20px;
+  background-color: black;
+}
+.card .wal img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0%;
+  left: 0%;
+  border-radius: 20px;
+}
+
+.card .fly {
+  position: absolute;
+  top: 17%;
+  left: -19%;
+  width: 134%;
+  z-index: -3;
+  opacity: 1;
+  transform: scale(0.01);
+  transition: all 0.5s;
+  filter: drop-shadow(2px 2px 2px, #000);
+}
+
+.card .logo {
+  position: absolute;
+  top: 75%;
+  left: -6%;
+  width: 110%;
+  height: 40%;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.5s;
+  bottom: 10px;
+}
+
+.card:hover {
+  transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
+  box-shadow: 2px 40px 32px -8px rgb(0, 0, 0);
+}
+
+.card:hover .wal img {
+  opacity: 0.2;
+}
+
+.card:hover .logo {
+  z-index: 1;
+  opacity: 1;
+  transform: translate3d(0%, -10px, 100px);
+}
+
+.card:hover .fly {
+  z-index: 1;
+  opacity: 1;
+  transform: translate3d(0%, -45%, 650px) scale(1);
+}
+
+.wal::before {
+  top: 0;
+  height: 100%;
+  background-image: linear-gradient(to top, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%);
+}
+
+.wal::after {
+  bottom: 0;
+  opacity: 1;
+  background-image: linear-gradient(to bottom, transparent 46%, rgba(12, 13, 19, 0.5) 68%, rgb(12, 13, 19) 97%);
+}
+
+.wal::before,
+.wal::after {
+  content: "";
+  opacity: 0;
+  width: 100%;
+  height: 80px;
+  transition: all 0.5s;
+  border-radius: 20px;
+  position: absolute;
+  left: 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0 10px 10px;
+}
+
+.card:hover .wal::before,
+.wal::after {
+  opacity: 1;
+}
+
+.card:hover .wal::after {
+  height: 120px;
+}/*# sourceMappingURL=3dcard.css.map */
